@@ -1,1 +1,3 @@
 adicionar o angular material =>  ng add @angular/material
+cria modulo e routing => ng g m nomeDaPasta --routing
+criar component => ng g c pasta/arquivo
