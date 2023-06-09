@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Course } from '../model/course';
+import { delay, first, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,17 @@ import { Course } from '../model/course';
 export class CoursesService {
   list: any;
 
+  private readonly API = '/assets/courses.json';
+
   constructor(private httpClient: HttpClient) { }
 
-  findAll(): Course[] {
-    return [
-      { _id:'1', name:'Bootcamp - SpringBoot 3.0 (DevSuperior)', category: 'Back-end'}
-    ];
+  findAll()  {
+      return this.httpClient.get<Course[]>(this.API)
+      .pipe(
+        first(),
+        delay(500),
+        tap(courses => console.log(courses)
+        )
+      );
   }
 }
