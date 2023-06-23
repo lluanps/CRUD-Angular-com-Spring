@@ -3,11 +3,11 @@
 @include mat-core();
 
 /*https://m2.material.io/design/color/the-color-system.html#tools-for-picking-colors*/
-$custom-app-primary: mat-palette($mat-blue);
+$custom-app-primary: mat-palette($mat-blue-gray);
 $custom-app-secondary: mat-palette($mat-indigo, A200, A400, 700);
 $custom-app-warn: mat-palette($mat-red);
 
-$custom-theme: mat-dark-theme($custom-app-primary, $custom-app-secondary, $custom-app-warn);
+$custom-theme: mat-light-theme($custom-app-primary, $custom-app-secondary, $custom-app-warn);
 
 /*usado para utilizar o $custom-theme como padrao*/
 @include angular-material-theme($custom-theme);
